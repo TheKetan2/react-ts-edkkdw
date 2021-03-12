@@ -51,7 +51,7 @@ const Hello = (): JSX.Element => {
     <div>
       <h2>Items</h2>
       {product.map(item => (
-        <li key={item.id} className="p-2">
+        <li style={styles.card} key={item.id} className="p-2">
           {item.title} @ ${item.price}
           <button
             onClick={() => {
@@ -66,8 +66,12 @@ const Hello = (): JSX.Element => {
 
       {product.map(item => {
         return (
-          <div>
-            disc:{item.title} : quantity: {item.quantity}
+          <div style={styles.card}>
+            Title:{item.title} :
+            <div style={{ color: "green" }}>
+              {" "}
+              Quantity: {item.quantity ? item.quantity : 0}
+            </div>
           </div>
         );
       })}
@@ -76,3 +80,13 @@ const Hello = (): JSX.Element => {
 };
 
 export default Hello;
+
+const styles = {
+  card: {
+    backgroundColor: "rgba(21,21,21,0.2)",
+    padding: 5,
+    margin: 5,
+    borderRadius: 5,
+    listStyle: "none"
+  }
+};
